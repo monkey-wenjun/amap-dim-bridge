@@ -1,0 +1,660 @@
+========= Lcom/baidu/che/codriversdk/RequestManager; at 342440
+   name          : 'TAG'
+   type          : 'Ljava/lang/String;'
+   value         : "RequestManager"
+   name          : 'mConnection'
+   type          : 'Landroid/content/ServiceConnection;'
+   name          : 'mContext'
+   type          : 'Landroid/content/Context;'
+   name          : 'mInitCompleted'
+   type          : 'Z'
+   name          : 'mInitListener'
+   type          : 'Lcom/baidu/che/codriversdk/InitListener;'
+   name          : 'mLocalService'
+   type          : 'Lcom/baidu/che/codriversdk/PlatformService;'
+   name          : '<init>'
+   type          : '()V'
+   name          : 'access$100'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;)Lcom/baidu/che/codriversdk/PlatformService;'
+   name          : 'access$102'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;Lcom/baidu/che/codriversdk/PlatformService;)Lcom/baidu/che/codriversdk/PlatformService;'
+   name          : 'access$200'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;)Z'
+   name          : 'access$202'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;Z)Z'
+   name          : 'access$300'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;)Lcom/baidu/che/codriversdk/InitListener;'
+   name          : 'access$400'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;)Landroid/content/Context;'
+   name          : 'access$500'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;Landroid/content/Context;Landroid/content/Intent;)V'
+   157be0: 7030 2c02 1002                         |0000: invoke-direct {v0, v1, v2}, Lcom/baidu/che/codriversdk/RequestManager;.startServiceFor26:(Landroid/content
+   name          : 'access$600'
+   type          : '(Lcom/baidu/che/codriversdk/RequestManager;)Landroid/content/ServiceConnection;'
+========= Lcom/baidu/che/codriversdk/PlatformService; at 341388
+   name          : 'CHANNEL_BACK_SERVICE'
+   type          : 'Ljava/lang/String;'
+   value         : "channel_back_service"
+   name          : 'CONNECT'
+   type          : 'I'
+   value         : 101
+   name          : 'CO_DRIVER'
+   type          : 'Ljava/lang/String;'
+   value         : "com.baidu.che.codriver"
+   name          : 'CO_DRIVER_SERVICE'
+   type          : 'Ljava/lang/String;'
+   value         : "com.baidu.che.codriver.sdk.CoDriverService"
+   name          : 'INIT_SUCCESS'
+   type          : 'Ljava/lang/String;'
+   value         : "init.success"
+   name          : 'TAG'
+   type          : 'Ljava/lang/String;'
+   value         : "PlatformService"
+   name          : 'mBinder'
+   type          : 'Lcom/baidu/che/codriversdk/PlatformService$a;'
+   name          : 'mCmdHandlerMap'
+   type          : 'Ljava/util/Map;'
+   name          : 'mCoDriverService'
+   type          : 'Lcom/baidu/che/codriver/ICoDriverService;'
+   name          : 'mIsInitSuccess'
+   type          : 'Z'
+   name          : 'mIsSystemSleep'
+   type          : 'Z'
+   name          : 'mListener'
+   type          : 'Lcom/baidu/che/codriver/ICoDriverListener;'
+   name          : 'mMainHandler'
+   type          : 'Landroid/os/Handler;'
+   name          : 'mRequestThread'
+   type          : 'Landroid/os/HandlerThread;'
+   name          : 'mServiceConnection'
+   type          : 'Landroid/content/ServiceConnection;'
+   name          : 'mWorkHandler'
+   type          : 'Landroid/os/Handler;'
+   name          : '<init>'
+   type          : '()V'
+   1572d2: 1a01 2026                              |000d: const-string v1, "RequestThread" // string@2620
+   name          : 'access$000'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;)V'
+   name          : 'access$102'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;Z)Z'
+   name          : 'access$200'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;)Lcom/baidu/che/codriver/ICoDriverService;'
+   name          : 'access$202'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;Lcom/baidu/che/codriver/ICoDriverService;)Lcom/baidu/che/codriver/ICoDriverService;'
+   name          : 'access$300'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;)Lcom/baidu/che/codriver/ICoDriverListener;'
+========= Lcom/baidu/che/codriversdk/manager/CdNaviManager; at 359078
+   name          : 'IN'
+   type          : 'Ljava/lang/String;'
+   value         : "in"
+   name          : 'NAVI_DEFAULT_APP'
+   type          : 'Ljava/lang/String;'
+   value         : "fun_navi_set_default_app"
+   name          : 'NAVI_START_TASK'
+   type          : 'Ljava/lang/String;'
+   value         : "fun_navi_start_task"
+   name          : 'OUT'
+   type          : 'Ljava/lang/String;'
+   value         : "out"
+   name          : 'QUIT'
+   type          : 'Ljava/lang/String;'
+   value         : "quit"
+   name          : 'SEND_ADDRESS'
+   type          : 'Ljava/lang/String;'
+   value         : "send_address"
+   name          : 'SET_APPOINT_ADDRESS'
+   type          : 'Ljava/lang/String;'
+   value         : "set_appoint_address"
+   name          : 'SET_DAY_NIGHT_MODE'
+   type          : 'Ljava/lang/String;'
+   value         : "set_day_night_mode"
+   name          : 'TRIGGER_NIGHT_MODE'
+   type          : 'Ljava/lang/String;'
+   value         : "trigger_night_mode"
+   name          : 'ZOOM'
+   type          : 'Ljava/lang/String;'
+   value         : "zoom"
+   name          : 'mIsNaviCall'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$IsNaviCallback;'
+   name          : 'mNaviCommandHandler'
+   type          : 'Lcom/baidu/che/codriversdk/a/l;'
+   name          : '<init>'
+   type          : '()V'
+   1604cc: 1a01 e743                              |000a: const-string v1, "map.tool" // string@43e7
+   name          : '<init>'
+   type          : '(Lcom/baidu/che/codriversdk/manager/CdNaviManager$1;)V'
+   name          : 'getInstance'
+   type          : '()Lcom/baidu/che/codriversdk/manager/CdNaviManager;'
+   name          : 'sendRequest'
+   type          : '(Ljava/lang/String;Ljava/lang/String;)V'
+   160530: 1a01 e743                              |0004: const-string v1, "map.tool" // string@43e7
+   160534: 6e40 2a02 1043                         |0006: invoke-virtual {v0, v1, v3, v4}, Lcom/baidu/che/codriversdk/RequestManager;.sendRequest:(Ljava/lang/String
+   name          : 'closeMap'
+   type          : '()V'
+   16054c: 1a00 594a                              |0000: const-string v0, "quit" // string@4a59
+   160552: 7030 c803 0201                         |0003: invoke-direct {v2, v0, v1}, Lcom/baidu/che/codriversdk/manager/CdNaviManager;.sendRequest:(Ljava/lang/Stri
+   name          : 'getAppointAddress'
+   type          : '(Lcom/baidu/che/codriversdk/manager/CdNaviManager$AddressType;Lcom/baidu/che/codriversdk/manager/CdNaviManager$AddressCallback;)V'
+   16057c: 1a01 e743                              |0008: const-string v1, "map.tool" // string@43e7
+========= Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp; at 358294
+   name          : '$VALUES'
+   type          : '[Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp;'
+   name          : 'Amap'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp;'
+   name          : 'Amap_Lite'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp;'
+   name          : 'Baidu'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp;'
+   name          : '<clinit>'
+   type          : '()V'
+   15ff3e: 1a01 0f06                              |0005: const-string v1, "Baidu" // string@060f
+   15ff50: 1a01 6f05                              |000e: const-string v1, "Amap_Lite" // string@056f
+   15ff62: 1a01 6e05                              |0017: const-string v1, "Amap" // string@056e
+   name          : '<init>'
+   type          : '(Ljava/lang/String;I)V'
+   name          : 'valueOf'
+   type          : '(Ljava/lang/String;)Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp;'
+   name          : 'values'
+   type          : '()[Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp;'
+   name          : '$VALUES'
+   type          : '[Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Cruise_End'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Cruise_Start'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Navi_App_Exit'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Navi_App_Launcher'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Navi_Background'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Navi_EXIT'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Navi_Front'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : 'Navi_Start'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatus;'
+   name          : '<clinit>'
+   type          : '()V'
+   160012: 1a01 b520                              |0007: const-string v1, "Navi_Front" // string@20b5
+   160024: 1a01 b320                              |0010: const-string v1, "Navi_Background" // string@20b3
+========= Lcom/baidu/che/codriversdk/INoProguard; at 155
+   name          : 'a'
+   type          : 'Lcom/baidu/che/codriversdk/PlatformService;'
+   name          : '<init>'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;Landroid/os/Looper;)V'
+   name          : 'handleMessage'
+   type          : '(Landroid/os/Message;)V'
+   name          : 'a'
+   type          : 'Ljava/lang/String;'
+   name          : 'b'
+   type          : 'Ljava/lang/String;'
+   name          : 'c'
+   type          : 'Ljava/lang/String;'
+   name          : 'd'
+   type          : 'Lcom/baidu/che/codriversdk/PlatformService;'
+   name          : '<init>'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+   name          : 'run'
+   type          : '()V'
+   name          : 'a'
+   type          : 'Lcom/baidu/che/codriversdk/PlatformService;'
+   name          : '<init>'
+   type          : '(Lcom/baidu/che/codriversdk/PlatformService;)V'
+========= Lcom/baidu/che/codriversdk/a/r; at 346489
+   name          : 'a'
+   type          : 'Ljava/lang/String;'
+   name          : 'b'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$ACListener;'
+   name          : 'c'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$CarWindowListener;'
+   name          : 'd'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$CarSeatListener;'
+   name          : 'e'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$CarDoorListener;'
+   name          : 'f'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$CarLightListener;'
+   name          : 'g'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$SystemSettingListener;'
+   name          : 'h'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$AppListener;'
+   name          : 'i'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$CarCameraListener;'
+   name          : 'j'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdSystemManager$CarInfoQueryListener;'
+   name          : '<init>'
+   type          : '()V'
+   159c92: 1a00 9044                              |0003: const-string v0, "navigate_instruction" // string@4490
+   name          : 'a'
+   type          : '(Ljava/lang/String;Lcom/baidu/che/codriversdk/manager/CdSystemManager$DirectionType;)Lcom/baidu/che/codriversdk/manager/CdSystemManager$Directi
+   159cca: 1a02 8529                              |000f: const-string v2, "SystemCommandHandler" // string@2985
+   159cd8: 1a04 7c3c                              |0016: const-string v4, "getDirectionType() type = " // string@3c7c
+   name          : 'a'
+   type          : '(Ljava/lang/String;)Lcom/baidu/che/codriversdk/manager/CdSystemManager$MeasureType;'
+   159d34: 1a02 2950                              |0002: const-string v2, "up" // string@5029
+   159d48: 1a02 8529                              |000c: const-string v2, "SystemCommandHandler" // string@2985
+   159d56: 1a04 283d                              |0013: const-string v4, "getMeasureType() type = " // string@3d28
+   159d82: 1a02 1739                              |0029: const-string v2, "down" // string@3917
+   159dd6: 1a02 8529                              |0053: const-string v2, "SystemCommandHandler" // string@2985
+   159de4: 1a04 273d                              |005a: const-string v4, "getMeasureType() Exception = " // string@3d27
+========= Lcom/baidu/che/codriversdk/a/l; at 345184
+   name          : 'a'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviStatusTool;'
+   name          : 'b'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$AddressCallback;'
+   name          : 'c'
+   type          : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$ConfirmCallback;'
+   name          : '<init>'
+   type          : '()V'
+   name          : 'a'
+   type          : '(Ljava/lang/String;)Lcom/baidu/che/codriversdk/manager/CdNaviManager$PoiModel;'
+   159186: 1a04 7a44                              |0013: const-string v4, "name" // string@447a
+   15918a: 1a05 0000                              |0015: const-string v5, "" // string@0000
+   15919a: 1a04 db4f                              |001d: const-string v4, "type" // string@4fdb
+   15919e: 1a05 0000                              |001f: const-string v5, "" // string@0000
+   1591ae: 1a04 2334                              |0027: const-string v4, "address" // string@3423
+   1591b2: 1a05 0000                              |0029: const-string v5, "" // string@0000
+   1591c2: 1a04 2c42                              |0031: const-string v4, "lat" // string@422c
+   1591c6: 1a05 b001                              |0033: const-string v5, "0" // string@01b0
+   1591de: 1a04 d942                              |003f: const-string v4, "lng" // string@42d9
+   1591e2: 1a05 b001                              |0041: const-string v5, "0" // string@01b0
+   1591fa: 1a04 c54d                              |004d: const-string v4, "share_url" // string@4dc5
+   1591fe: 1a05 0000                              |004f: const-string v5, "" // string@0000
+   15920e: 1a04 4336                              |0057: const-string v4, "city" // string@3643
+   159212: 1a05 0000                              |0059: const-string v5, "" // string@0000
+   159222: 1a04 124a                              |0061: const-string v4, "province" // string@4a12
+   159226: 1a05 0000                              |0063: const-string v5, "" // string@0000
+   159236: 1a04 f938                              |006b: const-string v4, "distance" // string@38f9
+   159246: 1a04 f938                              |0073: const-string v4, "distance" // string@38f9
+   15924a: 1a05 b001                              |0075: const-string v5, "0" // string@01b0
+   15925a: 1a04 c349                              |007d: const-string v4, "poi_type" // string@49c3
+   15926a: 1a04 c349                              |0085: const-string v4, "poi_type" // string@49c3
+   159276: 1a05 240e                              |008b: const-string v5, "GCJ02" // string@0e24
+   15928e: 1a04 874e                              |0097: const-string v4, "status" // string@4e87
+   15929e: 1a04 874e                              |009f: const-string v4, "status" // string@4e87
+   1592b6: 1a04 c349                              |00ab: const-string v4, "poi_type" // string@49c3
+   1592c2: 1a05 d405                              |00b1: const-string v5, "BD09" // string@05d4
+   1592e8: 1a04 c349                              |00c4: const-string v4, "poi_type" // string@49c3
+   1592f4: 1a05 342f                              |00ca: const-string v5, "WGS84" // string@2f34
+
+========= AIDL descriptors =========
+   com.baidu.che.codriver.StartService
+   com.baidu.che.codriver.sdk.CoDriverService
+   com.baidu.che.codriver.ICoDriverService
+
+#### Lcom/baidu/che/codriversdk/RequestManager; :: sendRequest
+         name          : 'sendRequest'
+         type          : '(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 5
+         ins           : 4
+         outs          : 4
+         insns size    : 10 16-bit code units
+   157dd4:                                        |[157dd4] com.baidu.che.codriversdk.RequestManager.sendRequest:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;
+   157de4: 5410 6b00                              |0000: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157de8: 3800 0700                              |0002: if-eqz v0, 0009 // +0007
+   157dec: 5410 6b00                              |0004: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157df0: 6e40 0b02 2043                         |0006: invoke-virtual {v0, v2, v3, v4}, Lcom/baidu/che/codriversdk/PlatformService;.sendRequest:(Ljava/lang/String;Lja
+   157df6: 0e00                                   |0009: return-void
+         catches       : (none)
+         positions     :
+           0x0000 line=58
+           0x0004 line=59
+           0x0009 line=61
+         locals        :
+           0x0000 - 0x000a reg=1 this Lcom/baidu/che/codriversdk/RequestManager;
+           0x0000 - 0x000a reg=2 cmd Ljava/lang/String;
+           0x0000 - 0x000a reg=3 param Ljava/lang/String;
+           0x0000 - 0x000a reg=4 data Ljava/lang/String;
+   
+       #9              : (in Lcom/baidu/che/codriversdk/RequestManager;)
+         name          : 'setIsSystemSleep'
+         type          : '(Z)V'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 3
+         ins           : 2
+         outs          : 2
+         insns size    : 10 16-bit code units
+   157df8:                                        |[157df8] com.baidu.che.codriversdk.RequestManager.setIsSystemSleep:(Z)V
+   157e08: 5410 6b00                              |0000: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157e0c: 3800 0700                              |0002: if-eqz v0, 0009 // +0007
+   157e10: 5410 6b00                              |0004: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157e14: 6e20 0c02 2000                         |0006: invoke-virtual {v0, v2}, Lcom/baidu/che/codriversdk/PlatformService;.setIsSystemSleep:(Z)V // method@020c
+   157e1a: 0e00                                   |0009: return-void
+         catches       : (none)
+         positions     :
+           0x0000 line=71
+           0x0004 line=72
+           0x0009 line=74
+         locals        :
+           0x0000 - 0x000a reg=1 this Lcom/baidu/che/codriversdk/RequestManager;
+           0x0000 - 0x000a reg=2 isSystemSleep Z
+   
+     source_file_idx   : 9759 (RequestManager.java)
+   
+   Class #1476            -
+     Class descriptor  : 'Lcom/baidu/che/codriversdk/a/a;'
+     Access flags      : 0x0001 (PUBLIC)
+     Superclass        : 'Ljava/lang/Object;'
+     Interfaces        -
+       #0              : 'Lcom/baidu/che/codriversdk/RequestManager$a;'
+     Static fields     -
+     Instance fields   -
+       #0              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'a'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$AsrTool;'
+         access        : 0x0002 (PRIVATE)
+       #1              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'b'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$AudioFocusListener;'
+         access        : 0x0002 (PRIVATE)
+       #2              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'c'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$c;'
+
+#### Lcom/baidu/che/codriversdk/RequestManager; :: init
+         name          : 'init'
+         type          : '(Landroid/content/Context;Lcom/baidu/che/codriversdk/InitListener;)V'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 6
+         ins           : 3
+         outs          : 4
+         insns size    : 21 16-bit code units
+   157d6c:                                        |[157d6c] com.baidu.che.codriversdk.RequestManager.init:(Landroid/content/Context;Lcom/baidu/che/codriversdk/InitListe
+   157d7c: 5b35 6a00                              |0000: iput-object v5, v3, Lcom/baidu/che/codriversdk/RequestManager;.mInitListener:Lcom/baidu/che/codriversdk/InitLis
+   157d80: 5b34 6800                              |0002: iput-object v4, v3, Lcom/baidu/che/codriversdk/RequestManager;.mContext:Landroid/content/Context; // field@0068
+   157d84: 2200 1400                              |0004: new-instance v0, Landroid/content/Intent; // type@0014
+   157d88: 1c01 a500                              |0006: const-class v1, Lcom/baidu/che/codriversdk/PlatformService; // type@00a5
+   157d8c: 7030 3700 4001                         |0008: invoke-direct {v0, v4, v1}, Landroid/content/Intent;.<init>:(Landroid/content/Context;Ljava/lang/Class;)V // me
+   157d92: 7030 2c02 4300                         |000b: invoke-direct {v3, v4, v0}, Lcom/baidu/che/codriversdk/RequestManager;.startServiceFor26:(Landroid/content/Cont
+   157d98: 5431 6700                              |000e: iget-object v1, v3, Lcom/baidu/che/codriversdk/RequestManager;.mConnection:Landroid/content/ServiceConnection; 
+   157d9c: 1212                                   |0010: const/4 v2, #int 1 // #1
+   157d9e: 6e40 1b00 0421                         |0011: invoke-virtual {v4, v0, v1, v2}, Landroid/content/Context;.bindService:(Landroid/content/Intent;Landroid/conten
+   157da4: 0e00                                   |0014: return-void
+         catches       : (none)
+         positions     :
+           0x0000 line=42
+           0x0002 line=43
+           0x0004 line=44
+           0x000b line=45
+           0x000e line=46
+           0x0014 line=47
+         locals        :
+           0x000b - 0x0015 reg=0 intent Landroid/content/Intent;
+           0x0000 - 0x0015 reg=3 this Lcom/baidu/che/codriversdk/RequestManager;
+           0x0000 - 0x0015 reg=4 context Landroid/content/Context;
+           0x0000 - 0x0015 reg=5 listener Lcom/baidu/che/codriversdk/InitListener;
+   
+       #7              : (in Lcom/baidu/che/codriversdk/RequestManager;)
+         name          : 'isSystemSleep'
+         type          : '()Z'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 2
+         ins           : 1
+         outs          : 1
+         insns size    : 13 16-bit code units
+   157da8:                                        |[157da8] com.baidu.che.codriversdk.RequestManager.isSystemSleep:()Z
+   157db8: 5410 6b00                              |0000: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157dbc: 3800 0900                              |0002: if-eqz v0, 000b // +0009
+   157dc0: 5410 6b00                              |0004: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157dc4: 6e10 0502 0000                         |0006: invoke-virtual {v0}, Lcom/baidu/che/codriversdk/PlatformService;.isSystemSleep:()Z // method@0205
+   157dca: 0a00                                   |0009: move-result v0
+   157dcc: 0f00                                   |000a: return v0
+   157dce: 1200                                   |000b: const/4 v0, #int 0 // #0
+   157dd0: 28fe                                   |000c: goto 000a // -0002
+         catches       : (none)
+         positions     :
+           0x0000 line=64
+           0x0004 line=65
+           0x000a line=67
+         locals        :
+           0x0000 - 0x000d reg=1 this Lcom/baidu/che/codriversdk/RequestManager;
+   
+       #8              : (in Lcom/baidu/che/codriversdk/RequestManager;)
+         name          : 'sendRequest'
+         type          : '(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 5
+         ins           : 4
+         outs          : 4
+         insns size    : 10 16-bit code units
+   157dd4:                                        |[157dd4] com.baidu.che.codriversdk.RequestManager.sendRequest:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;
+   157de4: 5410 6b00                              |0000: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+
+#### Lcom/baidu/che/codriversdk/RequestManager; :: getInstance
+         name          : 'getInstance'
+         type          : '()Lcom/baidu/che/codriversdk/RequestManager;'
+         access        : 0x0009 (PUBLIC STATIC)
+         code          -
+         registers     : 1
+         ins           : 0
+         outs          : 0
+         insns size    : 5 16-bit code units
+   157c00:                                        |[157c00] com.baidu.che.codriversdk.RequestManager.getInstance:()Lcom/baidu/che/codriversdk/RequestManager;
+   157c10: 7100 1702 0000                         |0000: invoke-static {}, Lcom/baidu/che/codriversdk/RequestManager$b;.a:()Lcom/baidu/che/codriversdk/RequestManager; /
+   157c16: 0c00                                   |0003: move-result-object v0
+   157c18: 1100                                   |0004: return-object v0
+         catches       : (none)
+         positions     :
+           0x0000 line=38
+         locals        :
+   
+       #10              : (in Lcom/baidu/che/codriversdk/RequestManager;)
+         name          : 'startServiceFor26'
+         type          : '(Landroid/content/Context;Landroid/content/Intent;)V'
+         access        : 0x0002 (PRIVATE)
+         code          -
+         registers     : 5
+         ins           : 3
+         outs          : 2
+         insns size    : 24 16-bit code units
+   157c1c:                                        |[157c1c] com.baidu.che.codriversdk.RequestManager.startServiceFor26:(Landroid/content/Context;Landroid/content/Intent
+   157c2c: 1301 1a00                              |0000: const/16 v1, #int 26 // #1a
+   157c30: 5420 6800                              |0002: iget-object v0, v2, Lcom/baidu/che/codriversdk/RequestManager;.mContext:Landroid/content/Context; // field@0068
+   157c34: 6e10 1f00 0000                         |0004: invoke-virtual {v0}, Landroid/content/Context;.getApplicationInfo:()Landroid/content/pm/ApplicationInfo; // met
+   157c3a: 0c00                                   |0007: move-result-object v0
+   157c3c: 5200 0a00                              |0008: iget v0, v0, Landroid/content/pm/ApplicationInfo;.targetSdkVersion:I // field@000a
+   157c40: 3410 0a00                              |000a: if-lt v0, v1, 0014 // +000a
+   157c44: 6000 2300                              |000c: sget v0, Landroid/os/Build$VERSION;.SDK_INT:I // field@0023
+   157c48: 3410 0600                              |000e: if-lt v0, v1, 0014 // +0006
+   157c4c: 6e20 3100 4300                         |0010: invoke-virtual {v3, v4}, Landroid/content/Context;.startForegroundService:(Landroid/content/Intent;)Landroid/co
+   157c52: 0e00                                   |0013: return-void
+   157c54: 6e20 3200 4300                         |0014: invoke-virtual {v3, v4}, Landroid/content/Context;.startService:(Landroid/content/Intent;)Landroid/content/Comp
+   157c5a: 28fc                                   |0017: goto 0013 // -0004
+         catches       : (none)
+         positions     :
+           0x0002 line=50
+           0x0010 line=51
+           0x0013 line=55
+           0x0014 line=53
+         locals        :
+           0x0000 - 0x0018 reg=2 this Lcom/baidu/che/codriversdk/RequestManager;
+           0x0000 - 0x0018 reg=3 context Landroid/content/Context;
+           0x0000 - 0x0018 reg=4 intent Landroid/content/Intent;
+   
+     Virtual methods   -
+       #0              : (in Lcom/baidu/che/codriversdk/RequestManager;)
+         name          : 'addCommandHandler'
+         type          : '(Ljava/lang/String;Lcom/baidu/che/codriversdk/RequestManager$a;)V'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 4
+         ins           : 3
+         outs          : 3
+         insns size    : 10 16-bit code units
+   157c5c:                                        |[157c5c] com.baidu.che.codriversdk.RequestManager.addCommandHandler:(Ljava/lang/String;Lcom/baidu/che/codriversdk/Req
+   157c6c: 5410 6b00                              |0000: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157c70: 3800 0700                              |0002: if-eqz v0, 0009 // +0007
+   157c74: 5410 6b00                              |0004: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/Platfor
+   157c78: 6e30 f801 2003                         |0006: invoke-virtual {v0, v2, v3}, Lcom/baidu/che/codriversdk/PlatformService;.addCommandHandler:(Ljava/lang/String;L
+   157c7e: 0e00                                   |0009: return-void
+         catches       : (none)
+         positions     :
+           0x0000 line=77
+           0x0004 line=78
+
+#### NaviApp enum
+   Class descriptor  : 'Lcom/baidu/che/codriversdk/manager/CdNaviManager$NaviApp;'
+   name          : '$VALUES'
+   name          : 'Amap'
+   name          : 'Amap_Lite'
+   name          : 'Baidu'
+   name          : '<clinit>'
+   name          : '<init>'
+
+#### XCVoiceService 里引用 CdNaviManager 的类
+
+#### RequestManager 全部方法
+   TAGLjava/lang/String;
+   mConnectionLandroid/content/ServiceConnection;
+   mContextLandroid/content/Context;
+   mInitCompletedZ
+   mInitListenerLcom/baidu/che/codriversdk/InitListener;
+   mLocalServiceLcom/baidu/che/codriversdk/PlatformService;
+   <init>()V
+   access$100(Lcom/baidu/che/codriversdk/RequestManager;)Lcom/baidu/che/codriversdk/PlatformService;
+   access$102(Lcom/baidu/che/codriversdk/RequestManager;Lcom/baidu/che/codriversdk/PlatformService;)Lcom/baidu/che/codriversdk/PlatformService;
+   access$200(Lcom/baidu/che/codriversdk/RequestManager;)Z
+   access$202(Lcom/baidu/che/codriversdk/RequestManager;Z)Z
+   access$300(Lcom/baidu/che/codriversdk/RequestManager;)Lcom/baidu/che/codriversdk/InitListener;
+   access$400(Lcom/baidu/che/codriversdk/RequestManager;)Landroid/content/Context;
+   access$500(Lcom/baidu/che/codriversdk/RequestManager;Landroid/content/Context;Landroid/content/Intent;)V
+   access$600(Lcom/baidu/che/codriversdk/RequestManager;)Landroid/content/ServiceConnection;
+   getInstance()Lcom/baidu/che/codriversdk/RequestManager;
+   startServiceFor26(Landroid/content/Context;Landroid/content/Intent;)V
+   addCommandHandler(Ljava/lang/String;Lcom/baidu/che/codriversdk/RequestManager$a;)V
+   doAfterConnectedToRemote()V
+   doAfterRemoteDisconnected()V
+   feedAudioBuffer([B[B)I
+   feedRawAudioBuffer([B)I
+   getCommandHandler(Ljava/lang/String;)Ljava/lang/Object;
+   init(Landroid/content/Context;Lcom/baidu/che/codriversdk/InitListener;)V
+   isSystemSleep()Z
+   sendRequest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+   setIsSystemSleep(Z)V
+
+#### RequestManager.sendRequest 代码
+         name          : 'sendRequest'
+         type          : '(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 5
+         ins           : 4
+         outs          : 4
+         insns size    : 10 16-bit code units
+   157dd4:                                        |[157dd4] com.baidu.che.codriversdk.RequestManager.sendRequest:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+   157de4: 5410 6b00                              |0000: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/PlatformServ
+   157de8: 3800 0700                              |0002: if-eqz v0, 0009 // +0007
+   157dec: 5410 6b00                              |0004: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/PlatformServ
+   157df0: 6e40 0b02 2043                         |0006: invoke-virtual {v0, v2, v3, v4}, Lcom/baidu/che/codriversdk/PlatformService;.sendRequest:(Ljava/lang/String;Ljava/la
+   157df6: 0e00                                   |0009: return-void
+         catches       : (none)
+         positions     :
+           0x0000 line=58
+           0x0004 line=59
+           0x0009 line=61
+         locals        :
+           0x0000 - 0x000a reg=1 this Lcom/baidu/che/codriversdk/RequestManager;
+           0x0000 - 0x000a reg=2 cmd Ljava/lang/String;
+           0x0000 - 0x000a reg=3 param Ljava/lang/String;
+           0x0000 - 0x000a reg=4 data Ljava/lang/String;
+   
+       #9              : (in Lcom/baidu/che/codriversdk/RequestManager;)
+         name          : 'setIsSystemSleep'
+         type          : '(Z)V'
+         access        : 0x0001 (PUBLIC)
+         code          -
+         registers     : 3
+         ins           : 2
+         outs          : 2
+         insns size    : 10 16-bit code units
+   157df8:                                        |[157df8] com.baidu.che.codriversdk.RequestManager.setIsSystemSleep:(Z)V
+   157e08: 5410 6b00                              |0000: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/PlatformServ
+   157e0c: 3800 0700                              |0002: if-eqz v0, 0009 // +0007
+   157e10: 5410 6b00                              |0004: iget-object v0, v1, Lcom/baidu/che/codriversdk/RequestManager;.mLocalService:Lcom/baidu/che/codriversdk/PlatformServ
+   157e14: 6e20 0c02 2000                         |0006: invoke-virtual {v0, v2}, Lcom/baidu/che/codriversdk/PlatformService;.setIsSystemSleep:(Z)V // method@020c
+   157e1a: 0e00                                   |0009: return-void
+         catches       : (none)
+         positions     :
+           0x0000 line=71
+           0x0004 line=72
+           0x0009 line=74
+         locals        :
+           0x0000 - 0x000a reg=1 this Lcom/baidu/che/codriversdk/RequestManager;
+           0x0000 - 0x000a reg=2 isSystemSleep Z
+   
+     source_file_idx   : 9759 (RequestManager.java)
+   
+   Class #1476            -
+     Class descriptor  : 'Lcom/baidu/che/codriversdk/a/a;'
+     Access flags      : 0x0001 (PUBLIC)
+     Superclass        : 'Ljava/lang/Object;'
+     Interfaces        -
+       #0              : 'Lcom/baidu/che/codriversdk/RequestManager$a;'
+     Static fields     -
+     Instance fields   -
+       #0              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'a'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$AsrTool;'
+         access        : 0x0002 (PRIVATE)
+       #1              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'b'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$AudioFocusListener;'
+         access        : 0x0002 (PRIVATE)
+       #2              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'c'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$c;'
+         access        : 0x0002 (PRIVATE)
+       #3              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'd'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$a;'
+         access        : 0x0002 (PRIVATE)
+       #4              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : 'e'
+         type          : 'Lcom/baidu/che/codriversdk/manager/CdAsrManager$AsrReplyListener;'
+         access        : 0x0002 (PRIVATE)
+     Direct methods    -
+       #0              : (in Lcom/baidu/che/codriversdk/a/a;)
+         name          : '<init>'
+         type          : '()V'
+         access        : 0x10001 (PUBLIC CONSTRUCTOR)
+         code          -
+         registers     : 1
+         ins           : 1
+         outs          : 1
+         insns size    : 4 16-bit code units
+   157e1c:                                        |[157e1c] com.baidu.che.codriversdk.a.a.<init>:()V
+
+#### Lcom/baidu/che/codriversdk/InitListener;
+   Class descriptor  : 'Lcom/baidu/che/codriversdk/InitListener;'
+   Access flags      : 0x0601 (PUBLIC INTERFACE ABSTRACT)
+   Superclass        : 'Ljava/lang/Object;'
+   Interfaces        -
+   #0              : 'Lcom/baidu/che/codriversdk/INoProguard;'
+   Static fields     -
+   Instance fields   -
+   Direct methods    -
+   Virtual methods   -
+   #0              : (in Lcom/baidu/che/codriversdk/InitListener;)
+    onConnectedToRemote()V
+    onDisconnectedToRemote()V
+
+#### Lcom/baidu/che/codriversdk/PlatformService$a;
+   Class descriptor  : 'Lcom/baidu/che/codriversdk/PlatformService$a;'
+   Access flags      : 0x0000 ()
+   Superclass        : 'Landroid/os/Binder;'
+   Interfaces        -
+   Static fields     -
+   Instance fields   -
+   #0              : (in Lcom/baidu/che/codriversdk/PlatformService$a;)
+   name          : 'a'
+   type          : 'Lcom/baidu/che/codriversdk/PlatformService;'
+   access        : 0x1010 (FINAL SYNTHETIC)
+    aLcom/baidu/che/codriversdk/PlatformService;
+    <init>(Lcom/baidu/che/codriversdk/PlatformService;)V
+    a()Lcom/baidu/che/codriversdk/PlatformService;

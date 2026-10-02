@@ -75,6 +75,16 @@ public class MainActivity extends Activity {
         });
         root.addView(toggle);
 
+        Button def = new Button(this);
+        def.setText("把默认导航改成高德（DuerOS）");
+        def.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DuerosNavi.setDefaultAmap(MainActivity.this);
+            }
+        });
+        root.addView(def);
+
         TextView hint = new TextView(this);
         hint.setText("在高德车机版里开始导航，下面会实时显示收到的广播；"
                 + "日志也写在 /sdcard/Android/data/com.awen.amapdim/files/probe.log");

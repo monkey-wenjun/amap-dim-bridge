@@ -26,6 +26,7 @@ public class BridgeService extends Service {
     public static final String TAG = "AmapDimBridge";
     public static final String ACTION_RELOAD = "com.awen.amapdim.RELOAD";
     public static final String ACTION_TOGGLE = "com.awen.amapdim.TOGGLE";
+    public static final String ACTION_SET_DEFAULT_AMAP = "com.awen.amapdim.SET_DEFAULT_AMAP";
 
     /** 是否真的往仪表推（调试期可关掉，只看日志） */
     public static volatile boolean pushEnabled = true;

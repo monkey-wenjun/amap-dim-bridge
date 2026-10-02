@@ -11,6 +11,10 @@ import android.content.Intent;
 public class NavReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+        if (BridgeService.ACTION_SET_DEFAULT_AMAP.equals(intent.getAction())) {
+            DuerosNavi.setDefaultAmap(context);
+            return;
+        }
         context.startService(new Intent(context, BridgeService.class));
     }
 }

@@ -25,6 +25,7 @@
             android:name=".BridgeService"
             android:exported="false" />
 
+
         <receiver
             android:name=".BootReceiver"
             android:exported="true">
@@ -40,6 +41,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="AUTONAVI_STANDARD_BROADCAST_SEND" />
+                <action android:name="com.awen.amapdim.SET_DEFAULT_AMAP" />
             </intent-filter>
         </receiver>
 
