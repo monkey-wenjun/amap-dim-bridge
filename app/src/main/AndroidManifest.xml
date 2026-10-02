@@ -34,5 +34,14 @@
             </intent-filter>
         </receiver>
 
+        <!-- 进程被杀后，高德的下一条广播也能把服务拉起来 -->
+        <receiver
+            android:name=".NavReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="AUTONAVI_STANDARD_BROADCAST_SEND" />
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>

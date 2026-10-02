@@ -1,6 +1,8 @@
 package com.awen.amapdim;
 
 import android.app.Service;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -31,9 +33,19 @@ public class BridgeService extends Service {
     private static final StringBuilder LOG = new StringBuilder();
     private static final int LOG_MAX = 20000;
 
+    private static final int NOTIF_ID = 0x5A17;   // 随便挑的，别和原厂撞
+    /** 导航中超过这么久没收到高德帧，就当导航已结束（高德每秒都在推） */
+    private static final long NAVI_STALE_MS = 20000;
+
     private BroadcastReceiver rx;
     private boolean naviActive;
     private int lastIcon = -1;
+    private long lastPushMs;
+    private long lastNaviMs;
+    private String lastRoad;
+    private int lastSeg = Integer.MIN_VALUE;
+    private int lastRoute = Integer.MIN_VALUE;
+    private int lastTime = Integer.MIN_VALUE;
 
     public static String logText() {
         synchronized (LOG) {
@@ -45,8 +57,27 @@ public class BridgeService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.i(TAG, "BridgeService onCreate");
+        goForeground();
         DimNavi.ensureAsync(this);
         register();
+    }
+
+    /** 4.4 上常驻服务要靠前台通知保命，不然会被 LMK 干掉 */
+    private void goForeground() {
+        try {
+            PendingIntent pi = PendingIntent.getActivity(this, 0,
+                    new Intent(this, MainActivity.class), 0);
+            Notification n = new Notification.Builder(this)
+                    .setSmallIcon(android.R.drawable.ic_menu_mylocation)
+                    .setContentTitle("高德仪表桥")
+                    .setContentText("导航信息同步到仪表盘")
+                    .setContentIntent(pi)
+                    .setOngoing(true)
+                    .build();
+            startForeground(NOTIF_ID, n);
+        } catch (Throwable t) {
+            Log.w(TAG, "startForeground 失败（不影响功能）", t);
+        }
     }
 
     @Override
@@ -55,6 +86,7 @@ public class BridgeService extends Service {
             pushEnabled = !pushEnabled;
             note("推送开关 = " + pushEnabled);
         }
+        armWatchdog();
         return START_STICKY;
     }
 
@@ -94,6 +126,25 @@ public class BridgeService extends Service {
         note("已注册高德广播接收器");
     }
 
+    private final Runnable watchdog = new Runnable() {
+        @Override
+        public void run() {
+            if (naviActive && System.currentTimeMillis() - lastNaviMs > NAVI_STALE_MS) {
+                note("导航帧超时，清仪表");
+                finishNavi();
+            }
+            armWatchdog();
+        }
+    };
+
+    private void armWatchdog() {
+        WATCH.removeCallbacks(watchdog);
+        WATCH.postDelayed(watchdog, 5000);
+    }
+
+    private static final android.os.Handler WATCH =
+            new android.os.Handler(android.os.Looper.getMainLooper());
+
     /** 解析一条高德广播 */
     private void handle(Intent it) {
         int keyType = it.getIntExtra("KEY_TYPE", -1);
@@ -132,53 +183,69 @@ public class BridgeService extends Service {
         }
 
         switch (keyType) {
-            case 10001: // 导航开始 / 进入导航
+            case 10001: // 导航信息（高德每秒推好几条）
                 naviActive = true;
-                DimNavi.start();
+                lastNaviMs = System.currentTimeMillis();
                 pushFields(icon, nextRoad, segDis, routeDis, routeTime, direction);
                 break;
-            case 10019: // 导航中信息
-                if (state == 0) { // 退出导航
-                    naviActive = false;
-                    DimNavi.stop();
-                } else {
-                    if (!naviActive) {
-                        naviActive = true;
-                        DimNavi.start();
-                    }
-                    pushFields(icon, nextRoad, segDis, routeDis, routeTime, direction);
+            case 10019: // App 状态：EXTRA_STATE 0=退出 1=前台 2=后台
+                if (state == 0) {
+                    finishNavi();
                 }
                 break;
-            case 10021: // 到达/结束
-                naviActive = false;
-                DimNavi.arrived(nextRoad);
-                DimNavi.stop();
+            case 10021: // 导航结束/到达
+                if (naviActive) {
+                    DimNavi.arrived(nextRoad);
+                }
+                finishNavi();
                 break;
             default:
                 break;
         }
     }
 
+    private void finishNavi() {
+        if (!naviActive) {
+            return;
+        }
+        naviActive = false;
+        lastIcon = -1;
+        lastRoad = null;
+        lastSeg = lastRoute = lastTime = Integer.MIN_VALUE;
+        DimNavi.stop();
+        note("退出导航，已清仪表");
+    }
+
     private void pushFields(int icon, String nextRoad, int segDis, int routeDis,
                             int routeTime, int direction) {
-        if (nextRoad != null && nextRoad.length() > 0) {
-            DimNavi.nextRoad(nextRoad);
+        boolean changed = icon != lastIcon
+                || (nextRoad != null && !nextRoad.equals(lastRoad))
+                || segDis != lastSeg || routeDis != lastRoute || routeTime != lastTime;
+        long now = System.currentTimeMillis();
+        // 高德刷得比仪表需要快得多；有变化立刻推，没变化最多 1 秒一帧
+        if (!changed && now - lastPushMs < 1000) {
+            return;
         }
-        if (segDis >= 0) {
-            DimNavi.distanceToNext(segDis);
-        }
-        if (routeDis >= 0) {
-            DimNavi.distanceToDest(routeDis);
-        }
-        if (routeTime >= 0) {
-            DimNavi.eta(routeTime);
-        }
-        if (direction >= 0) {
-            DimNavi.driveDirection(direction);
-        }
-        if (icon >= 0 && icon != lastIcon) {
+        lastPushMs = now;
+        if (icon >= 0) {
             lastIcon = icon;
             DimNavi.arrow(AmapIcon.toCluster(icon));
+        }
+        if (nextRoad != null && nextRoad.length() > 0 && !nextRoad.equals(lastRoad)) {
+            lastRoad = nextRoad;
+            DimNavi.nextRoad(nextRoad);
+        }
+        if (segDis >= 0 && segDis != lastSeg) {
+            lastSeg = segDis;
+            DimNavi.distanceToNext(segDis);
+        }
+        if (routeDis >= 0 && routeDis != lastRoute) {
+            lastRoute = routeDis;
+            DimNavi.distanceToDest(routeDis);
+        }
+        if (routeTime >= 0 && routeTime != lastTime) {
+            lastTime = routeTime;
+            DimNavi.eta(routeTime);
         }
     }
 

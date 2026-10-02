@@ -3,16 +3,18 @@ package com.awen.amapdim;
 /**
  * 高德车机版广播里的 ICON（转向图标 id）→ 亿咖通仪表 E_ICON_NAVI_* 图标码。
  *
- * 仪表端的图标码取自 /system/app/XCDimInteractionService.apk 里
- * com.ecarx.dim_interaction.template.dimscreen.LinkedImageMapping 的字段值：
+ * 仪表端图标码：取自 /system/app/XCDimInteractionService.apk 的
+ * com.ecarx.dim_interaction.template.dimscreen.LinkedImageMapping 字段值：
  *
  *   E_ICON_NAVI=112  STRAIGHT=113  TURN_BACK=114  TURN_R_T=115  TURN_L_T=116
  *   TURN_R=117       TURN_L=118    TURN_R_D=119  TURN_L_D=120  KEEP_R=121
  *   KEEP_L=122       EXIT_R=123    EXIT_L=124    ROUND=125      TOLL=126
- *   DEST=127         FERRY=128     DEST_1..5=129..132,136  ENTRY_R=133  ENTRY_L=134
- *   JCT=135          SA=137        TUNNEL=138
+ *   DEST=127         FERRY=128     ENTRY_R=133   ENTRY_L=134    JCT=135
+ *   SA=137           TUNNEL=138
  *
- * 高德 ICON 的取值语义先用实测（AmapProbe 记录）反推，未识别的回落到「直行」。
+ * 高德端 id：就是高德车机版自带资源 res/drawable-hdpi-v4/navistate_landback_&lt;id 的十六进制&gt;.png。
+ * 已实车验证 id=3 = 右转（2026-10-02，CS11，导航到「红军营东路」）。完整对照见
+ * docs/图标码表.md。没把握的复杂路口一律回落到通用导航图标，宁可少画不要画错。
  */
 public final class AmapIcon {
 
@@ -41,52 +43,42 @@ public final class AmapIcon {
     private AmapIcon() {
     }
 
-    /** 高德 ICON id → 仪表图标码（实测前先用保守映射） */
+    /** 高德 ICON id → 仪表图标码 */
     public static int toCluster(int amapIcon) {
         switch (amapIcon) {
-            case 0:
-                return E_NAVI;
-            case 1:
+            case 0:   // 直行
+                return E_STRAIGHT;
+            case 1:   // 左转
                 return E_TURN_L;
-            case 2:
-                return E_TURN_R;
-            case 3:
+            case 2:   // 直行 + 左（左前方）
                 return E_TURN_L_T;
-            case 4:
+            case 3:   // 右转（实测验证）
+                return E_TURN_R;
+            case 4:   // 直行 + 右（右前方）
                 return E_TURN_R_T;
-            case 5:
-                return E_TURN_L_D;
-            case 6:
-                return E_TURN_R_D;
-            case 7:
-            case 8:
+            case 5:   // 掉头
+            case 8:   // 右掉头
                 return E_TURN_BACK;
-            case 9:
-                return E_STRAIGHT;
-            case 10:
-                return E_ROUND;
+            case 6:   // 前方左右
+            case 7:   // 十字路口
             case 11:
-                return E_ROUND;
             case 12:
-                return E_KEEP_L;
-            case 13:
-                return E_KEEP_R;
             case 14:
-                return E_FERRY;
-            case 15:
-                return E_TOLL;
             case 16:
-                return E_TUNNEL;
             case 17:
-                return E_JCT;
             case 18:
-                return E_SA;
             case 19:
-                return E_EXIT_L;
             case 20:
-                return E_EXIT_R;
-            default:
+                return E_JCT;
+            case 9:
+            case 10:
+                return E_TURN_R_T;
+            case 13:  // 直行（带汇入提示）
                 return E_STRAIGHT;
+            case 21:  // 公交专用道
+            case 23:  // 可变车道
+            default:
+                return E_NAVI;
         }
     }
 }

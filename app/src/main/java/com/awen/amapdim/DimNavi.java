@@ -153,7 +153,7 @@ public final class DimNavi {
         Q.execute(new Runnable() {
             @Override
             public void run() {
-                if (!ensure()) {
+        if (!ensure()) {
                     return;
                 }
                 try {
@@ -167,10 +167,13 @@ public final class DimNavi {
         });
     }
 
-    public static void start() {
-        call("notifyTurnByTurnStarted", new Class<?>[]{});
-    }
-
+    /**
+     * 注意：**不要**调 notifyTurnByTurnStarted()。
+     * 客户端 SDK 会把它转成 turnState=0，而服务端 NavigationDimInteraction.turnByTurn()
+     * 明确要求 turnState != 0，否则抛 "Navigation state is not correct."
+     * （实测日志：E/JavaBinder java.lang.RuntimeException: Navigation state is not correct.）
+     * 仪表是在收到 turnState=1 的导航帧时进入导航界面的。
+     */
     public static void stop() {
         call("notifyTurnByTurnStopped", new Class<?>[]{});
     }
