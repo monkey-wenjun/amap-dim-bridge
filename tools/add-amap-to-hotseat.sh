@@ -74,12 +74,19 @@ echo "已存截图（拖之前的画面）：/tmp/hotseat_before.png"
 EV() { $ADB shell "sendevent $TOUCH $*"; }
 
 # ---- 按下并停住（长按）----
+#
+# 2026-10-03 实车修正：CS11 的触摸设备（SYNAPTICSTOUCH / event3）**没有 ABS_MT_SLOT，
+# 但有 ABS_MT_TRACKING_ID**。原脚本把 TRACKING_ID 和 SLOT 绑在一起，导致这台车上
+# 从来没发过 TRACKING_ID —— 内核直接不认这次触摸，sendevent 全程无效（input tap 却正常，
+# 因为 input 是在 InputManager 层注入的，不走 /dev/input）。
 if [ "$HAS_SLOT" -gt 0 ]; then
   EV 3 47 0            # ABS_MT_SLOT 0
-  EV 3 57 1            # ABS_MT_TRACKING_ID
 fi
+EV 3 57 1              # ABS_MT_TRACKING_ID（type A 必备，别漏）
 EV 3 53 "$SX"
 EV 3 54 "$SY"
+EV 3 48 12             # ABS_MT_TOUCH_MAJOR
+EV 3 58 60             # ABS_MT_PRESSURE
 EV 1 330 1             # BTN_TOUCH down
 EV 0 0 0
 sleep 1.0
@@ -97,10 +104,8 @@ done
 sleep 0.4
 
 # ---- 松手 ----
+EV 3 57 4294967295     # ABS_MT_TRACKING_ID = -1（抬指）
 EV 1 330 0
-if [ "$HAS_SLOT" -gt 0 ]; then
-  EV 3 57 4294967295   # tracking id -1
-fi
 EV 0 0 0
 sleep 1.0
 
