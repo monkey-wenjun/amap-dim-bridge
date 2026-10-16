@@ -3,3 +3,6 @@ build/
 local.properties
 *.iml
 .idea/
+
+# 从车机抽出来的第三方私有二进制（百度 DuerOS SDK），不随仓库分发
+tools/dueros-sdk/*.dex
